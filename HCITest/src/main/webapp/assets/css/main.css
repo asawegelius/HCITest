@@ -27,17 +27,17 @@
 @keyframes blink {0%{opacity:1;} 50%{opacity:0;} 100%{opacity:1;}} /* Opera and prob css3 final iteration */
 
 .red-spot > img {
-	height:5vw;
-	width:5vw;
+	height:2vw;
+	width:2vw;
 border:1px solid #000;
--moz-transition:all 1s ease-in-out;
--webkit-transition:all 1s ease-in-out;
--o-transition:all 1s ease-in-out;
--ms-transition:all 1s ease-in-out;
-transition:all 1s ease-in-out;
+-moz-transition:all 10ms ease-in-out;
+-webkit-transition:all 10ms ease-in-out;
+-o-transition:all 10ms ease-in-out;
+-ms-transition:all 10ms ease-in-out;
+transition:all 10ms ease-in-out;
 /* order: name, direction, duration, iteration-count, timing-function */  
--moz-animation:blink normal 1s infinite ease-in-out; /* Firefox */
--webkit-animation:blink normal 1s infinite ease-in-out; /* Webkit */
--ms-animation:blink normal 1s infinite ease-in-out; /* IE */
-animation:blink normal 1s infinite ease-in-out; /* Opera and prob css3 final iteration */
+-moz-animation:blink normal 10ms infinite ease-in-out; /* Firefox */
+-webkit-animation:blink normal 10ms infinite ease-in-out; /* Webkit */
+-ms-animation:blink normal 10ms infinite ease-in-out; /* IE */
+animation:blink normal 10ms infinite ease-in-out; /* Opera and prob css3 final iteration */
 }​
