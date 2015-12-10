@@ -27,8 +27,8 @@
 @keyframes blink {0%{opacity:1;} 50%{opacity:0;} 100%{opacity:1;}} /* Opera and prob css3 final iteration */
 
 .red-spot > img {
-	height:2vw;
-	width:2vw;
+	height:4vw;
+	width:4vw;
 border:1px solid #000;
 -moz-transition:all 10ms ease-in-out;
 -webkit-transition:all 10ms ease-in-out;

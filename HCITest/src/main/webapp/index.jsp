@@ -90,5 +90,16 @@
 	<script src="../../dist/js/bootstrap.min.js"></script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+	<script type="text/javascript">
+	var clickedTime; var createdTime; var reactionTime;
+	window.addEventListener("keydown", checkKeyPressed, false);
+	 
+	function checkKeyPressed(e) {
+	    if (e.keyCode == "37") {
+	        alert("The '<-' key is pressed.");
+	    }
+	}
+
+	</script>
 </body>
 </html>
