@@ -19,9 +19,12 @@
 <link href="../../assets/css/ie10-viewport-bug-workaround.css"
 	rel="stylesheet">
 
-<!-- Custom styles for this template -->
+<!-- Styles for this template -->
 <link href="assets/css/starter-template.css" rel="stylesheet">
 <link href="assets/css/main.css" rel="stylesheet">
+
+<!-- Chart library for this template -->
+<link rel="stylesheet" href="assets/css/chartist.min.css">
 
 <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
 <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -61,14 +64,55 @@
 
 	<div class="container">
 
-		<div class="starter-template">
+		<div class="starter-template" class="test-screen">
 			<h1>The test</h1>
-			<div class="test-screen">
-				<div class="red-spot">
-					<img src="assets/img/redCircle.png" alt="red spot"/>
+			<div class="row">
+
+				<div class="col-sm-8">
+					<div class="test-screen">
+						<div class="red-spot">
+							<img src="assets/img/empty.png" alt="red spot" />
+						</div>
+						<div class="arrow">
+							<img id="arrow" src="assets/img/empty.png" alt="left arrow" />
+						</div>
+					</div>
 				</div>
-				<div class="arrow">
-					<img src="assets/img/greenArrow.png" alt="green arrow" />
+				<div class="col-sm-4">
+					<div id="tabbox">
+						<a href="#" id="score" class="tab score"> score </a> <a href="#"
+							id="instruction" class="tab select"> instruction </a>
+
+					</div>
+					<div id="panel">
+						<div id="instructionbox">
+							<ul class="text-left">
+								<li>The test takes max 3 minutes</li>
+								<li>You shall press the left arrow key when the left arrow
+									appears</li>
+								<li>You shall press the right arrow key when the right
+									arrow appears</li>
+								<li>It is your first click that counts</li>
+							</ul>
+						</div>
+						<div id="scorebox">
+							<div class=”ct-chart”></div>
+
+							<script>
+							Chartist.Line('.ct-chart', {
+									  labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+									  series: [[0, 3, 2, 8, 9], [1, 2, 3, 5, 8]]
+									}, {
+									  width: '300px',
+									  height: '200px'
+									});
+							</script>
+						</div>
+					</div>
+				</div>
+				<div class="pull-right">
+					<button type="button" class="btn btn-success"
+						onclick="showArrows()">Start test</button>
 				</div>
 			</div>
 		</div>
@@ -91,15 +135,124 @@
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 	<script type="text/javascript">
-	var clickedTime; var createdTime; var reactionTime;
-	window.addEventListener("keydown", checkKeyPressed, false);
-	 
-	function checkKeyPressed(e) {
-	    if (e.keyCode == "37") {
-	        alert("The '<-' key is pressed.");
-	    }
-	}
+		var clickedTime;
+		var createdTime;
+		var reactionTime;
+		var timeoutID;
+		var turn = 0;
+		var testing = false;
+		var responseTime = [ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 ];
+		var rightAnswer = [ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 ];
+		window.addEventListener("keydown", checkKeyPressed, false);
 
+		function checkKeyPressed(e) {
+			if (testing) {
+				switch (e.keyCode) {
+				case 37:
+					clickedTime = Date.now();
+					var img = document.getElementById('arrow');
+					if (img.src.indexOf('leftArrow.png') > -1
+							&& rightAnswer[turn - 1] < 0) {
+						rightAnswer[turn - 1] = 1;
+					} else {
+						rightAnswer[turn - 1] = 0;
+					}
+					reactionTime = (clickedTime - createdTime) / 1000;
+					responseTime[turn - 1] = reactionTime;
+					break;
+				case 39:
+					clickedTime = Date.now();
+					var img = document.getElementById('arrow');
+					if (img.src.indexOf('rightArrow.png') > -1
+							&& rightAnswer[turn - 1] < 0) {
+						rightAnswer[turn - 1] = 1;
+					} else {
+						rightAnswer[turn - 1] = 0;
+					}
+					reactionTime = (clickedTime - createdTime) / 1000;
+					responseTime[turn - 1] = reactionTime;
+					break;
+				default:
+					clickedTime = Date.now();
+					reactionTime = (clickedTime - createdTime) / 1000;
+					responseTime[turn - 1] = reactionTime;
+					break;
+				}
+			}
+		}
+
+		function showArrows() {
+			createdTime = Date.now();
+			testing = true;
+			timeoutID = window.setTimeout(randomArrow, 2000);
+		}
+
+		function betweenArrows() {
+			document.getElementById('arrow').src = "assets/img/empty.png"
+			timeoutID = window.setTimeout(randomArrow, 500);
+		}
+
+		function randomArrow() {
+			if (turn < 10) {
+				var breakpoint = .5
+				var target = 0;
+				target = document.getElementById('arrow');
+				if (target) {
+					if (Math.random() <= breakpoint) {
+						target.src = "assets/img/rightArrow.png"
+					} else {
+						target.src = "assets/img/leftArrow.png"
+					}
+					createdTime = Date.now();
+				} else {
+					stop();
+				}
+				timeoutID = window.setTimeout(betweenArrows, 2000);
+				turn++;
+			} else {
+				stop();
+				alert(JSON.stringify(responseTime));
+				alert(JSON.stringify(rightAnswer));
+			}
+		}
+
+		function clearTimer() {
+			window.clearTimeout(timeoutID);
+		}
+
+		function stop() {
+			testing = false;
+			window.clearTimeout(timeoutID);
+			document.getElementById('arrow').src = "assets/img/empty.png";
+		}
 	</script>
+
+	<script type="text/javascript"
+		src="http://ajax.googleapis.com/
+ajax/libs/jquery/1.5/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$(".tab").click(function() {
+				var X = $(this).attr('id');
+
+				if (X == 'score') {
+					$("#instruction").removeClass('select');
+					$("#score").addClass('select');
+					$("#instructionbox").slideUp();
+					$("#scorebox").slideDown();
+				} else {
+					$("#score").removeClass('select');
+					$("#instruction").addClass('select');
+					$("#scorebox").slideUp();
+					$("#instructionbox").slideDown();
+				}
+
+			});
+
+		});
+	</script>
+
+	<script src="assets/js/chartist.min.js"></script>
 </body>
 </html>
