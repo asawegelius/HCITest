@@ -1,3 +1,8 @@
+@import url("scss/chartist.scss");
+
+@import url("scss/settings/_chartist-settings.scss");
+
+
 .test-screen {
 	background-color: #000000;
 	position: relative;
@@ -9,75 +14,75 @@ html, body {
 	background-color: #000000;
 	color: #EEE6AB;
 }
+
 /* tab box ---------------------------------------------------------------------------------------------------------*/
-#tabbox {
-	height: 40px
+@import
+	url('http://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+
+*, *:before, *:after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-#panel {
-	background-color: #000000;
-	height: 300px;
-}
-
-.tab {
-	background: #696758;
-	display: block;
-	height: 40px;
-	line-height: 40px;
+h1 {
+	padding: 100px 0;
+	font-weight: 400;
 	text-align: center;
-	width: 80px;
-	float: right;
-	font-weight: bold;
-	-webkit-border-top-left-radius: 4px;
-	-webkit-border-top-right-radius: 4px;
-	-moz-border-radius: 4px 4px 0px 0px;
 }
 
-a:link {
-	color: #C5BC8E;
-	margin: 0;
-	padding: 0;
-	text-decoration: none;
+p {
+	margin: 0 0 20px;
+	line-height: 1.5;
 }
 
-a:visited {
-	color: #C5BC8E;
-	margin: 0;
-	padding: 0;
-	text-decoration: none;
+.main {
+	margin: 0 auto;
+	min-width: 320px;
+	max-width: 800px;
 }
 
-a:active  {
+.content {
+	background-color: #000000;
 	color: #EEE6AB;
-	margin: 0;
-	padding: 0;
-	text-decoration: underline;
 }
 
-a:hover  {
-	color: #C5BC8E;
-	margin: 0;
-	padding: 0;
-	text-decoration: underline;
-}
-
-.score {
-	margin-left: 8px;
-}
-
-.select {
-	background-color: #45484B;
-}
-
-#instructionbox {
-	min-height: 200px;
-	padding: 10px;
-}
-
-#scorebox {
-	min-height: 200px;
-	padding: 10px;
+.content>div {
 	display: none;
+	padding: 20px 25px 5px;
+}
+
+input {
+	display: none;
+}
+
+label {
+	display: inline-block;
+	padding: 15px 25px;
+	font-weight: 600;
+	text-align: center;
+}
+
+label:hover {
+	color: #fff;
+	cursor: pointer;
+}
+
+input:checked+label {
+	background: #E6AC27;
+	color: #fff;
+}
+
+#tab1:checked ~ .content #content1, #tab2:checked ~ .content #content2,
+	#tab3:checked ~ .content #content3, #tab4:checked ~ .content #content4
+	{
+	display: block;
+}
+
+@media screen and (max-width: 400px) {
+	label {
+		padding: 15px 10px;
+	}
 }
 
 /* end tab box ---------------------------------------------------------------------------------------------------------*/
@@ -106,7 +111,15 @@ a:hover  {
 opacity
 
 
+
+
+
+
 :
+
+
+
+
 
 
 0;
@@ -115,7 +128,15 @@ opacity
 opacity
 
 
+
+
+
+
 :
+
+
+
+
 
 
 1;
@@ -130,7 +151,15 @@ opacity
 opacity
 
 
+
+
+
+
 :
+
+
+
+
 
 
 0;
@@ -139,7 +168,15 @@ opacity
 opacity
 
 
+
+
+
+
 :
+
+
+
+
 
 
 1;
@@ -154,7 +191,15 @@ opacity
 opacity
 
 
+
+
+
+
 :
+
+
+
+
 
 
 0;
@@ -163,7 +208,15 @@ opacity
 opacity
 
 
+
+
+
+
 :
+
+
+
+
 
 
 1;
@@ -178,7 +231,15 @@ keyframes blink { 0%{
 opacity
 
 
+
+
+
+
 :
+
+
+
+
 
 
 0;
@@ -187,7 +248,15 @@ opacity
 opacity
 
 
+
+
+
+
 :
+
+
+
+
 
 
 1;

@@ -1,0 +1,41 @@
+@namespace ct "http://gionkunz.github.com/chartist-js/ct";
+
+.ct-chart .ct-series.ct-series-a .ct-bar[ct|meta='0'] {
+  stroke: red;
+}
+
+.ct-chart .ct-series.ct-series-a .ct-bar[ct|meta='1'] {
+  stroke: green;
+}
+
+.ct-chart .ct-series.ct-series-a .ct-bar[ct|meta='-1'] {
+  stroke: orange;
+}
+
+.ct-chart .ct-series.ct-series-a .ct-pie[ct|meta='0'] {
+  stroke: red;
+}
+
+.ct-chart .ct-series.ct-series-a .ct-pie[ct|meta='1'] {
+  stroke: green;
+}
+
+.ct-chart .ct-series.ct-series-a .ct-pie[ct|meta='-1'] {
+  stroke: orange;
+}
+
+.right {
+  stroke: green;
+  fill: green;
+}
+
+.wrong {
+  stroke: red;
+  fill: red;
+}
+
+.miss {
+  stroke: orange;
+  fill: orange;
+}
+

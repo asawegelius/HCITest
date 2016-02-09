@@ -1,0 +1,11 @@
+{
+  "name": "hcitest",
+  "version": "1.0.0",
+  "description": "HCI tests for the HCI course at KEA",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asawegelius/HCITest.git"
+  },
+  "author": "Åsa  Wegelius"
+}
