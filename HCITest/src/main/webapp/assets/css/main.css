@@ -2,7 +2,6 @@
 
 @import url("scss/settings/_chartist-settings.scss");
 
-
 .test-screen {
 	background-color: #000000;
 	position: relative;
@@ -15,77 +14,20 @@ html, body {
 	color: #EEE6AB;
 }
 
-/* tab box ---------------------------------------------------------------------------------------------------------*/
-@import
-	url('http://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
-
-*, *:before, *:after {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+.page-heading h1 {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	line-height: normal;
+	width: 75%;
+	padding-top: 8px;
 }
 
-h1 {
-	padding: 100px 0;
-	font-weight: 400;
-	text-align: center;
+.page-content {
+	margin-top: 20px;
 }
 
-p {
-	margin: 0 0 20px;
-	line-height: 1.5;
-}
 
-.main {
-	margin: 0 auto;
-	min-width: 320px;
-	max-width: 800px;
-}
-
-.content {
-	background-color: #000000;
-	color: #EEE6AB;
-}
-
-.content>div {
-	display: none;
-	padding: 20px 25px 5px;
-}
-
-input {
-	display: none;
-}
-
-label {
-	display: inline-block;
-	padding: 15px 25px;
-	font-weight: 600;
-	text-align: center;
-}
-
-label:hover {
-	color: #fff;
-	cursor: pointer;
-}
-
-input:checked+label {
-	background: #E6AC27;
-	color: #fff;
-}
-
-#tab1:checked ~ .content #content1, #tab2:checked ~ .content #content2,
-	#tab3:checked ~ .content #content3, #tab4:checked ~ .content #content4
-	{
-	display: block;
-}
-
-@media screen and (max-width: 400px) {
-	label {
-		padding: 15px 10px;
-	}
-}
-
-/* end tab box ---------------------------------------------------------------------------------------------------------*/
 .arrow {
 	position: absolute;
 	left: 20vw;
@@ -101,181 +43,7 @@ input:checked+label {
 	height: 5vw;
 	width: 5vw;
 }
-
-@
--moz-keyframes blink { 0%{
-	opacity: 1;
-}
-
-50%{
-opacity
-
-
-
-
-
-
-:
-
-
-
-
-
-
-0;
-}
-100%{
-opacity
-
-
-
-
-
-
-:
-
-
-
-
-
-
-1;
-}
-} /* Firefox */
-@
--webkit-keyframes blink { 0%{
-	opacity: 1;
-}
-
-50%{
-opacity
-
-
-
-
-
-
-:
-
-
-
-
-
-
-0;
-}
-100%{
-opacity
-
-
-
-
-
-
-:
-
-
-
-
-
-
-1;
-}
-} /* Webkit */
-@
--ms-keyframes blink { 0%{
-	opacity: 1;
-}
-
-50%{
-opacity
-
-
-
-
-
-
-:
-
-
-
-
-
-
-0;
-}
-100%{
-opacity
-
-
-
-
-
-
-:
-
-
-
-
-
-
-1;
-}
-} /* IE */
-@
-keyframes blink { 0%{
-	opacity: 1;
-}
-
-50%{
-opacity
-
-
-
-
-
-
-:
-
-
-
-
-
-
-0;
-}
-100%{
-opacity
-
-
-
-
-
-
-:
-
-
-
-
-
-
-1;
-}
-} /* Opera and prob css3 final iteration */
 .red-spot>img {
-	height: 4vw;
-	width: 4vw;
-	border: 1px solid #000;
-	-moz-transition: all 10ms ease-in-out;
-	-webkit-transition: all 10ms ease-in-out;
-	-o-transition: all 10ms ease-in-out;
-	-ms-transition: all 10ms ease-in-out;
-	transition: all 10ms ease-in-out;
-	/* order: name, direction, duration, iteration-count, timing-function */
-	-moz-animation: blink normal 10ms infinite ease-in-out; /* Firefox */
-	-webkit-animation: blink normal 10ms infinite ease-in-out; /* Webkit */
-	-ms-animation: blink normal 10ms infinite ease-in-out; /* IE */
-	animation: blink normal 10ms infinite ease-in-out;
-	/* Opera and prob css3 final iteration */
+	height: 5vw;
+	width: 5vw;
 }
-​

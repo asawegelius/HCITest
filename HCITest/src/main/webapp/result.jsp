@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.google.gson.Gson"%>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -41,7 +42,6 @@
 </head>
 
 <body onload="setVariables()">
-
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -81,19 +81,64 @@
 
 		<div class="starter-template" class="test-screen">
 			<div class="heading">
-				<h2 class="panel-title pull-left">Instructions</h2>
+				<h2 class="panel-title pull-left">Result</h2>
 				<div class="clearfix"></div>
 			</div>
 			<div class="page-content">
+				<%
+					if (request.getParameter("rightAnswer") == null) {
+				%>
 				<ul class="text-left">
-					<li>The test takes max 3 minutes</li>
-					<li>You shall press the left arrow key when the left arrow
-						appears</li>
-					<li>You shall press the right arrow key when the right arrow
-						appears</li>
-					<li>It is your first click that counts</li>
+					<li>The result will be here after you have taken the test</li>
+					<li>Start the test by clicking the green start test button on
+						the test page</li>
+					<li>Check here after the test is completed</li>
 				</ul>
 			</div>
+			<%
+				// End of if
+				} else {
+			%>
+			<script type="text/javascript">
+				
+			</script>
+			<div class="col-md-6">
+				<div class='ct-chart ct-golden-section text-left col-md-6'
+					id='chart1'></div>
+			</div>
+			<div class="col-md-6">
+				<div class='ct-chart ct-golden-section text-left col-md-6'
+					id='chart3'></div>
+			</div>
+			<div class="col-md-6 text-left">
+				<p>response time without distraction</p>
+			</div>
+			<div class="col-md-6 text-left">
+				<p>response time with distraction</p>
+			</div>
+
+			<div class="col-md-6">
+				<div class='ct-chart ct-golden-section text-left col-md-6'
+					id='chart2'></div>
+			</div>
+			<div class="col-md-6">
+				<div class='ct-chart ct-golden-section text-left col-md-6'
+					id='chart4'></div>
+			</div>
+
+			<div class="col-md-6 text-left">
+				<p>Right answer without distraction</p>
+			</div>
+			<div class="col-md-6 text-left">
+				<p>Right answer with distraction</p>
+			</div>
+			<script type="text/javascript" src="assets/js/showCharts.js">
+				
+			</script>
+			<%
+				// End of else
+				}
+			%>
 		</div>
 
 	</div>

@@ -78,24 +78,31 @@
 	</nav>
 
 	<div class="container">
-
 		<div class="starter-template" class="test-screen">
-			<div class="heading">
-				<h2 class="panel-title pull-left">Instructions</h2>
-				<div class="clearfix"></div>
-			</div>
-			<div class="page-content">
-				<ul class="text-left">
-					<li>The test takes max 3 minutes</li>
-					<li>You shall press the left arrow key when the left arrow
-						appears</li>
-					<li>You shall press the right arrow key when the right arrow
-						appears</li>
-					<li>It is your first click that counts</li>
-				</ul>
+			<div class="test-screen">
+				<form action="post" name="theTest">
+					<div class="page-heading">
+						<h2 class="panel-title pull-left">The test</h2>
+
+						<button type="button" class="btn btn-success pull-right"
+							onclick="start()">Start test</button>
+						<div class="clearfix"></div>
+					</div>
+					<div class="page-content">
+						<div class="red-spot">
+							<img id="distraction" src="assets/img/empty.png" alt="red spot" />
+						</div>
+						<div class="arrow">
+							<img id="arrow" src="assets/img/empty.png"  height="100" width="100" alt="left arrow" />
+						</div>
+						<input type="hidden" name="responseTime">
+						<input type="hidden" name="rightAnswer">
+						<input type="hidden" name="responseTime2">
+						<input type="hidden" name="rightAnswer2">
+					</div>
+				</form>
 			</div>
 		</div>
-
 	</div>
 	<!-- /.container -->
 
