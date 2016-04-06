@@ -19,11 +19,10 @@ function checkKeyPressed(e) {
 		case 37:
 			clickedTime = Date.now();
 			var img = document.getElementById('arrow');
-			if (turn < 10) {
+			if (turn < 11) {
 				if (img.src.indexOf('leftArrow.png') > -1
 						&& rightAnswer[turn - 1] < 0) {
-					rightAnswer[turn - 1] = 1;
-				} else {
+					rightAnswer[turn - 1] = 1;} else {
 					rightAnswer[turn - 1] = 0;
 				}
 				reactionTime = (clickedTime - createdTime) / 1000;
@@ -42,7 +41,7 @@ function checkKeyPressed(e) {
 		case 39:
 			clickedTime = Date.now();
 			var img = document.getElementById('arrow');
-			if (turn < 10) {
+			if (turn < 11) {
 				if (img.src.indexOf('rightArrow.png') > -1
 						&& rightAnswer[turn - 1] < 0) {
 					rightAnswer[turn - 1] = 1;
@@ -109,28 +108,15 @@ function randomArrow() {
 		turn++;
 	} else {
 		stop();
-		rightAnswer = JSON.stringify({
-			"rightAnswer" : rightAnswer
-		});
-		rightAnswer2 = JSON.stringify({
-			"rightAnswer2" : rightAnswer2
-		});
-		respTime = JSON.stringify({
-			"responseTime" : respTime
-		});
-		respTime2 = JSON.stringify({
-			"responseTime2" : respTime2
-		});
-		alert(rightAnswer + ",  " + rightAnswer2 + ", " + respTime + ", "
-				+ respTime2);
-		document.forms[0].responseTime.value = respTime;
-		document.forms[0].responseTime2.value = respTime2;
-		document.forms[0].rightAnswer.value = rightAnswer;
-		document.forms[0].rightAnswer2.value = rightAnswer2;
-		document.forms[0].address.value="result";
-		document.forms[0].action = "ResultServlet";
-		document.forms[0].method = "post"; // "get"
-		document.forms[0].submit();
+
+		document.forms.navbar.responseTime.value = JSON.stringify(respTime);
+		document.forms.navbar.responseTimeDistracted.value = JSON.stringify(respTime2);
+		document.forms.navbar.rightAnswer.value = JSON.stringify(rightAnswer);
+		document.forms.navbar.rightAnswerDistracted.value = JSON.stringify(rightAnswer2);
+		document.forms.navbar.address.value="result";
+		document.forms.navbar.action = "ResultServlet";
+		document.forms.navbar.method = "post"; // "get"		
+		document.forms.navbar.submit();
 	}
 }
 
